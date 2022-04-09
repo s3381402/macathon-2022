@@ -1,6 +1,12 @@
-{% extends 'base.html' %}
+{% extends 'bootstrap/base.html' %}
+
+
+{% block navbar %}
+{{nav.top.render()}}
+{% endblock %}
 
 {% block main %}
 <h1>
-    heading 1
+    <p>Hello world</p> 
 </h1>
+{% endblock %}

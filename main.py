@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
 from flask_nav import Nav
 from flask_nav.elements import *
@@ -21,8 +21,9 @@ nav.register_element('top', topbar)
 app = Flask(__name__)
 Bootstrap(app)
 
-# TODO: login page
 
+
+# TODO: login page
 
 # Home page
 @app.route("/")
@@ -39,6 +40,12 @@ def map():
 def report_issue():
     return render_template("report_issue.html")
 
+@app.route('/', methods=['POST'])
+def report_form():
+    text = request.form['text']
+    processed_text = text.upper()
+    return processed_text
+    
 # TODO: acknowledgements page
 
 

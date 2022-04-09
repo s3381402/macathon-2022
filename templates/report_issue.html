@@ -1,7 +1,17 @@
 {% extends 'index.html' %}
 
-{% block main %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<div>
 <h1>
     Report an issue
 </h1>
+
+<form method="POST">
+    <fieldset>
+        <input type="text" id="text" name="text_name" class="textboxForm" />
+        <input type="submit">
+    </fieldset>
+</form>
+</div>
 {% endblock %}

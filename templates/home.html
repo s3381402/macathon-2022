@@ -1,7 +1,14 @@
 {% extends 'index.html' %} 
 
-{% block main %}
-<h1>
-    Home page
-</h1>
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<h1>Help keep our campuses clean and safe.</h1>
+<h3>If you spot full bins, damaged property or toilets that are in unsafe condition, <br>
+    you can immediately do a 'shout out' so that your other peers can get updates in real time about what's happening around you.</h3>
+
+<img src='/static/images/logo.png' style="width:60em; height:60em;">
+
+
 {% endblock %}

@@ -35,7 +35,7 @@ To help prevent misuse of the app and lead to more quality contributions, the 's
 
 
 **How did we build it?**<br />
-We are building our frontend using HTML/CSS with Bootstrap and for the backend, we are using Python, Flask and SQLite for the database.<br />
+We are building our frontend using HTML/CSS with Bootstrap and for the backend, we are using Python, Flask and SQLAlchemy for the database.<br />
 
 **Challenges we ran into**<br />
 Initially our team consisted of 4 individuals however one was not able to attend. After re-assessing our skillsets and what technologies we wanted to learn and practice more on, we decided to revolve it around Python and technologies supplementing the web app functionality.
@@ -44,4 +44,4 @@ We were browsing through potential free options for real-time GPS APIs that we c
 Another challenging aspect was the 2 days required to completing and learning new technologies required for the project, however the experience we gained as a result was certainly worthwhile.<br />
 
 **What we're proud about**<br />
-More practice on Python, Flask, SQL databases, frontend and backend tinkering, and attempting to figure out how to implement the GPS map APIs.
+More practice on Python, Flask, SQL Alchemy databases, frontend and backend tinkering, and attempting to figure out how to implement the GPS map APIs.

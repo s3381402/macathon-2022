@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
+        <style>
+            /* can't modify height */
+            .map {
+            height: 400px;
+            width: 100%;
+            }
+        </style>
+        <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
+        <title>Map rendering test</title>
+    </head>
+    <body>
+        <main>
+            <p>Timestamp: <span id="timestamp"></span></p>
+            <p>Latitude: <span id="lat"></span></p>
+            <p>Longitude: <span id="long"></span></p>
+            <div id="errorArea" class="alert d-none"> </div>
+            <div id="map" class="map"></div>
+        </main>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"; integrity="REMOVED FOR BREVITY" crossorigin="anonymous"> </script>
+        <script>
+            if (navigator.geolocation) {     
+               
+                navigator.geolocation.getCurrentPosition(displayPosition);  
+            }
+
+            function displayPosition(pos) {  }
+            function handleError(error) {  }
+            function displayError(msg) {  }  
+            function displayPosition(pos) {  
+                coords = pos.coords;    
+                $("#timestamp").text(new Date(pos.timestamp));
+                $("#lat").text(coords.latitude);
+                $("#long").text(coords.longitude); 
+                long = coords.longitude
+                lat = coords.latitude
+            }
+            
+            $(document).ready(function () {  
+                     
+                    var map = new ol.Map({
+                    target: 'map',
+                    layers: [
+                        new ol.layer.Tile({
+                        source: new ol.source.OSM()
+                        })
+                    ],
+                    view: new ol.View({
+                        center: ol.proj.fromLonLat([145.133957, -37.907803]),
+                        zoom: 20
+                    })
+                });
+            });
+
+
+        </script>
+    </body>
+</html>

@@ -18,7 +18,7 @@ topbar = Navbar(logo,
                 View('Home', 'home'),
                 View('Map', 'map'),
                 View('Report Issue', 'report_issue'),
-                # View('Acknowledgements', 'acknowledgements'),
+                View('Acknowledgements', 'acknowledgements'),
                 )
 
 nav = Nav()
@@ -52,6 +52,7 @@ def report_form():
     processed_text = text.upper()
     return processed_text
 
+# Report issue buttons
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -59,14 +60,26 @@ def index():
             pass # do something
         elif  request.form.get('chem_fire_haz') == 'Chem/Fire hazard':
             pass # do something else
+        elif  request.form.get('trip_haz') == 'Trip hazard':
+            pass # do something else
+        elif  request.form.get('vandalised') == 'Vandalised':
+            pass # do something else
         else:
             pass # do other
     elif request.method == 'GET':
         return render_template('report_issue.html')
     
     return render_template("report_issue.html")
+<<<<<<< HEAD
 
 # TODO: acknowledgements page
+=======
+    
+# Acknowledgements page
+@app.route("/acknowledgements")
+def acknowledgements():
+    return render_template("acknowledgements.html")
+>>>>>>> 6769681c38bb0cf5126f4148d06de2e93c6acbcb
 
 
 nav.init_app(app)

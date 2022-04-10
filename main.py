@@ -25,7 +25,7 @@ nav = Nav()
 nav.register_element('top', topbar)
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}' # sqlite/sqlalchemy databse is stored at sqlite:///DB_NAME
+app.config['SQL_ALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}' # sqlite/sqlalchemy databse is stored at sqlite:///DB_NAME
 db.init_app(app) # Linking db to app
 
 
@@ -42,7 +42,7 @@ def map():
     return render_template("map.html")
 
 # Report Issue page
-@app.route("/report_issue", methods=['GET', 'POST'])
+@app.route("/report_issue")
 def report_issue():
     return render_template("report_issue.html")
 
@@ -51,6 +51,19 @@ def report_form():
     text = request.form['text']
     processed_text = text.upper()
     return processed_text
+
+# Report issue database model
+class Report(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    info = db.Column(db.String(150))
+    longitude = db.Column(db.Float)
+    latitude = db.Column(db.Float)
+    dataTime = db.Column(db.DateTime(timezone=True))
+
+    def __init__(self, info, longitude, latitude):
+        self.info = info
+        self.longitude = longitude
+        self.latitude = latitude
 
 # Report issue buttons
 @app.route("/", methods=['GET', 'POST'])
@@ -70,20 +83,12 @@ def index():
         return render_template('report_issue.html')
     
     return render_template("report_issue.html")
-<<<<<<< HEAD
-
-# TODO: acknowledgements page
-=======
     
 # Acknowledgements page
 @app.route("/acknowledgements")
 def acknowledgements():
     return render_template("acknowledgements.html")
->>>>>>> 6769681c38bb0cf5126f4148d06de2e93c6acbcb
-
 
 nav.init_app(app)
 if __name__ == '__main__':
     app.run(debug=True)
-    db.create_all()
-    model.query.all()

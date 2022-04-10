@@ -25,7 +25,7 @@ nav = Nav()
 nav.register_element('top', topbar)
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SQL_ALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}' # sqlite/sqlalchemy databse is stored at sqlite:///DB_NAME
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}' # sqlite/sqlalchemy databse is stored at sqlite:///DB_NAME
 db.init_app(app) # Linking db to app
 
 
@@ -42,7 +42,7 @@ def map():
     return render_template("map.html")
 
 # Report Issue page
-@app.route("/report_issue")
+@app.route("/report_issue", methods=['GET', 'POST'])
 def report_issue():
     return render_template("report_issue.html")
 
@@ -65,10 +65,12 @@ def index():
         return render_template('report_issue.html')
     
     return render_template("report_issue.html")
-    
+
 # TODO: acknowledgements page
 
 
 nav.init_app(app)
 if __name__ == '__main__':
     app.run(debug=True)
+    db.create_all()
+    model.query.all()

@@ -51,6 +51,20 @@ def report_form():
     text = request.form['text']
     processed_text = text.upper()
     return processed_text
+
+@app.route("/", methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        if request.form.get('full_bins') == 'Full Bins':
+            pass # do something
+        elif  request.form.get('chem_fire_haz') == 'Chem/Fire hazard':
+            pass # do something else
+        else:
+            pass # do other
+    elif request.method == 'GET':
+        return render_template('report_issue.html')
+    
+    return render_template("report_issue.html")
     
 # TODO: acknowledgements page
 

@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <table id="data" class="table table-strped">
+        <thread>
+            <tr>
+                <th>Student Name</th>
+                <th>Total Thumbs up</th>
+                <th>Total Shout outs</th>
+            </tr>
+        </thread>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.thumbsup }}</td>
+                <td>{{ user.shoutouts }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

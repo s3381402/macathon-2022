@@ -18,7 +18,7 @@ topbar = Navbar(logo,
                 View('Home', 'home'),
                 View('Map', 'map'),
                 View('Report Issue', 'report_issue'),
-                # View('Acknowledgements', 'acknowledgements'),
+                View('Acknowledgements', 'acknowledgements'),
                 )
 
 nav = Nav()

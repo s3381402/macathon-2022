@@ -15,3 +15,9 @@ input {
   padding: 0.4%;
 }
 
+.map-content {
+  max-width: 95%;
+  margin: auto;
+  padding-left: 1%;
+}
+

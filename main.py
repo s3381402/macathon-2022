@@ -52,12 +52,17 @@ def report_form():
     processed_text = text.upper()
     return processed_text
 
+# Report issue buttons
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         if request.form.get('full_bins') == 'Full Bins':
             pass # do something
         elif  request.form.get('chem_fire_haz') == 'Chem/Fire hazard':
+            pass # do something else
+        elif  request.form.get('trip_haz') == 'Trip hazard':
+            pass # do something else
+        elif  request.form.get('vandalised') == 'Vandalised':
             pass # do something else
         else:
             pass # do other
@@ -66,7 +71,10 @@ def index():
     
     return render_template("report_issue.html")
     
-# TODO: acknowledgements page
+# Acknowledgements page
+@app.route("/acknowledgements")
+def acknowledgements():
+    return render_template("acknowledgements.html")
 
 
 nav.init_app(app)
